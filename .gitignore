@@ -1,0 +1,9 @@
+# Workspace specific files
+workspace.xml
+
+# .NET Compiler output
+bin/
+obj/
+
+# Dependency binaries
+packages/
