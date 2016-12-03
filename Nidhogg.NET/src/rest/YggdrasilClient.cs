@@ -54,7 +54,7 @@ namespace Nidhogg.rest
         public Session Login(AccountCredentials data, string sessionClientToken = NidhoggClientToken, string agentName
             = "Minecraft")
         {
-            if (data.Username.Equals("") || data.Password.Equals(""))
+            if (data.UserName.Equals("") || data.Password.Equals(""))
             {
                 throw new ArgumentException("User Credentials may not be empty");
             }
@@ -67,7 +67,7 @@ namespace Nidhogg.rest
                     version = 1
                 },
 
-                username = data.Username,
+                username = data.UserName,
                 password = data.Password,
                 clientToken = sessionClientToken,
                 requestUser = true
@@ -156,14 +156,14 @@ namespace Nidhogg.rest
         /// <exception cref="InvalidCredentialException">If the given credentials where invalid</exception>
         public void SignOut(AccountCredentials data)
         {
-            if (data.Username.Equals("") || data.Password.Equals(""))
+            if (data.UserName.Equals("") || data.Password.Equals(""))
             {
                 throw new ArgumentException("User Credentials may not be empty");
             }
 
             IRestResponse response = ExecuteRequest(EndpointSignout, new
             {
-                username = data.Username,
+                username = data.UserName,
                 password = data.Password
             });
 
